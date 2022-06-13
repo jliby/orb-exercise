@@ -25,6 +25,7 @@ parameters:
     default: TWITTER_ACCESS_SECRET
     description: |
       Name of environment variable storing your Twitter access secret
+
 steps:
   - run:
       environment:
@@ -33,6 +34,4 @@ steps:
         ACCESS_TOKEN: <<parameters.access_token>>
         access_secret: <<parameters.access_secret>>
       name: Send Tweet
-      command: |
-         <<include(scripts/twurl.sh)>>
-         <<include(scripts/tweet.sh)>>
+      command: <<include(scripts/tweet.sh)>>
