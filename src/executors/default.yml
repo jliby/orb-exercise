@@ -11,5 +11,3 @@ parameters:
       Pick a specific cimg/node image variant:
       https://hub.docker.com/r/cimg/node/tags
     type: string
-steps:
-  - run: gem install twurl
