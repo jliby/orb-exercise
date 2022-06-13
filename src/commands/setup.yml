@@ -1,7 +1,0 @@
-description: |
-  This command tweets the given contents using relevant token.
-
-steps:
-  - run:
-      name: Send Tweet
-      command: <<include(scripts/twurl.sh)>>
