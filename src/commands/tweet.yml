@@ -1,48 +1,36 @@
-description: >
+description: |
   This command tweets the given contents using relevant token.
-
 parameters:
   contents:
     type: string
-    default: "Hello World!"
-    description: "The tweet to be sent."
-
+    default: Hello World!
+    description: The tweet to be sent.
   consumer_key:
     type: env_var_name
     default: TWITTER_CONSUMER_KEY
-    description: >
+    description: |
       Name of environment variable storing your Twitter consumer key
-
   consumer_secret:
     type: env_var_name
     default: TWITTER_CONSUMER_SECRET
-    description: >
+    description: |
       Name of environment variable storing your Twitter consumer secret
-
   access_token:
     type: env_var_name
     default: TWITTER_ACCESS_TOKEN
-    description: >
+    description: |
       Name of environment variable storing your Twitter access token
-
   access_secret:
     type: env_var_name
     default: TWITTER_ACCESS_SECRET
-    description: >
+    description: |
       Name of environment variable storing your Twitter access secret
-
 steps:
   - run:
-          environment:
-            CONSUMER_KEY: <<parameters.consumer_key>>
-            CONSUMER_SECRET: <<parameters.consumer_secret>>
-            ACCESS_TOKEN: <<parameters.access_token>>
-            access_secret: <<parameters.access_secret>>
-
-          name: Send Tweet
-          command: <<include(scripts/tweet.sh)>>
-
-
-
-
-          
+      environment:
+        CONSUMER_KEY: <<parameters.consumer_key>>
+        CONSUMER_SECRET: <<parameters.consumer_secret>>
+        ACCESS_TOKEN: <<parameters.access_token>>
+        access_secret: <<parameters.access_secret>>
+      name: Send Tweet
+      command: <<include(scripts/tweet.sh)>>
