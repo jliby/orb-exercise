@@ -34,20 +34,16 @@ parameters:
 steps:
   - run: gem install twurl
   - run:
-      name: Send tweet
-      command: |
-          twurl -c "$<< parameters.consumer_key >>" \
-                -s "$<< parameters.consumer_secret >>" \
-                -a "$<< parameters.access_token >>" \
-                -S "$<< parameters.access_secret >>" \
-                -d "status=$<<parameters.contents>>" /1.1/statuses/update.json
-
-              - run:
           environment:
             CONSUMER_KEY: <<parameters.consumer_key>>
             CONSUMER_SECRET: <<parameters.consumer_secret>>
-            ACCESS_TOKEN: <<parameters.secret>>
-            access_secret: <<>>
+            ACCESS_TOKEN: <<parameters.access_token>>
+            access_secret: <<parameters.access_secret>>
 
           name: Send Tweet
           command: <<include(scripts/tweet.sh)>>
+
+
+
+
+          
