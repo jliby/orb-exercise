@@ -1,36 +1,21 @@
-description: |
-  This command tweets the given contents using relevant token.
+description: >
+  This command posts a tweet from your account
 parameters:
-  contents:
+  tweet:
     type: string
-    default: Hello World!
-    description: The tweet to be sent.
-  consumer_key:
-    type: env_var_name
-    default: TWITTER_CONSUMER_KEY
-    description: |
-      Name of environment variable storing your Twitter consumer key
-  consumer_secret:
-    type: env_var_name
-    default: TWITTER_CONSUMER_SECRET
-    description: |
-      Name of environment variable storing your Twitter consumer secret
-  access_token:
-    type: env_var_name
-    default: TWITTER_ACCESS_TOKEN
-    description: |
-      Name of environment variable storing your Twitter access token
-  access_secret:
-    type: env_var_name
-    default: TWITTER_ACCESS_SECRET
-    description: |
-      Name of environment variable storing your Twitter access secret
+    description: "Tweet Body"
+  key:
+    type: string
+    description: "Consumer Key"
+  secret:
+    type: string
+    description: "Consumer Secret"
 steps:
+  - run: gem install twurl
   - run:
       environment:
-        CONSUMER_KEY: <<parameters.consumer_key>>
-        CONSUMER_SECRET: <<parameters.consumer_secret>>
-        ACCESS_TOKEN: <<parameters.access_token>>
-        access_secret: <<parameters.access_secret>>
+        PARAM_TWEET: <<parameters.tweet>>
+        PARAM_KEY: <<parameters.key>>
+        PARAM_SECRET: <<parameters.secret>>
       name: Send Tweet
       command: <<include(scripts/tweet.sh)>>
