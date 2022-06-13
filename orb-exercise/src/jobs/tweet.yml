@@ -1,0 +1,40 @@
+description: >
+  Sends a tweet
+# What will this job do?
+# Descriptions should be short, simple, and clear.
+
+executor: twurl
+
+parameters:
+  contents:
+    type: string
+    default: "Hello World!"
+    description: "This is the tweet that will be sent."
+
+  consumer_key:
+    type: env_var_name
+    default: TWITTER_CONSUMER_KEY
+    description: >
+      Name of environment variable storing your Twitter consumer key
+
+  consumer_secret:
+    type: env_var_name
+    default: TWITTER_CONSUMER_SECRET
+    description: >
+      Name of environment variable storing your Twitter consumer secret
+
+  access_token:
+    type: env_var_name
+    default: TWITTER_ACCESS_TOKEN
+    description: >
+      Name of environment variable storing your Twitter access token
+
+  access_secret:
+    type: env_var_name
+    default: TWITTER_ACCESS_SECRET
+    description: >
+      Name of environment variable storing your Twitter access secret
+
+steps:
+  - tweet:
+      contents: << parameters.contents >>
