@@ -8,3 +8,4 @@ parameters:
     default: '2.7'
     description: The `circleci/ruby` Docker image version tag.
     type: string
+    
