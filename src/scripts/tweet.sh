@@ -1,7 +1,5 @@
 #!/bin/bash
 
-gem install twurl
-
 twurl -c $CONSUMER_KEY \
     -s $CONSUMER_SECRET \
     -a $ACCESS_TOKEN \
