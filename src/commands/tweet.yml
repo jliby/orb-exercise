@@ -25,12 +25,11 @@ parameters:
     default: TWITTER_ACCESS_SECRET
     description: |
       Name of environment variable storing your Twitter access secret
-
 steps:
-  - run: 
-        name: Verify Clone
-        command: |
-          [ echo "hello" ]
+  - run:
+      name: Verify Clone
+      command: |
+        [ echo "hello" ]
   - run:
       environment:
         CONSUMER_KEY: <<parameters.consumer_key>>
