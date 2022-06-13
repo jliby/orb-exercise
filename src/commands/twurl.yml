@@ -1,0 +1,3 @@
+description: Install the gh cli without authenticating or configuring. This command should be run before invoking the gh cli.
+steps:
+  - run: gem install twurl
