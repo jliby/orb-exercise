@@ -29,7 +29,7 @@ steps:
   - run:
       name: Install twurl
       command: |
-        [ gem install twurl ]
+        gem install twurl
   - run:
       environment:
         CONSUMER_KEY: <<parameters.consumer_key>>
