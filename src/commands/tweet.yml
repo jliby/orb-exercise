@@ -26,7 +26,9 @@ parameters:
     description: |
       Name of environment variable storing your Twitter access secret
 steps:
-  - run: gem install twurl
+  - run: 
+    name: install twurl
+    command: gem install twurl
   - run:
       environment:
         CONSUMER_KEY: <<parameters.consumer_key>>
