@@ -37,4 +37,4 @@ parameters:
 
 steps:
   - tweet:
-      contents: << parameters.contents >>
+      contents: << parameters.contents >>   
